@@ -13,5 +13,5 @@ Please read the content of the script before executing it.
 To run the setup script use following command:
 (Run in the directory you wish to have starter cloned to)
 ```
-bash <(wget -qO- https://github.com/krogk/cpp-project-template/cpp-project-template-setup.sh)
+sudo bash -c "$(wget -O - https://raw.githubusercontent.com/krogk/cpp-project-template/develop/cpp-project-template-setup.sh)"
 ```

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CalledFromDir=$(pwd)
+
 # Update & Upgrade apt
 sudo apt update -y
 sudo apt upgrade -y
@@ -21,7 +23,7 @@ sudo apt-get install make  -y
 sudo apt-get install cmake -y
 sudo apt-get install ccache -y 
 # LLVM
-#sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 # Libs
 sudo apt-get install libboost-all-dev -y
 # Profilers
@@ -34,10 +36,9 @@ sudo cmake CMakeLists.txt
 sudo make
 cd lib/
 sudo cp *.a /usr/lib
-cd $HOME
 
 ### Build ###
-
+cd ${CalledFromDir}
 # Clone project template
 git clone https://github.com/krogk/cpp-project-template
 # Change dir to the cloned repo
