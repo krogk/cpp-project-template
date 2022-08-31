@@ -9,6 +9,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Set to Dev mode on i.e enable all analysers
 set(DEV_MODE TRUE CACHE BOOL "Enable Dev mode")
 
+# Compile options
+add_compile_options(-g -Wall -Werror)
+
 # Set project info
 project(
 	cpp-template-project
@@ -17,8 +20,8 @@ project(
 	HOMEPAGE_URL "%%myurl%%"
 	LANGUAGES CXX C)
 
-# Add cmake files
+# Add cmake files dir
 add_subdirectory(cmake)
 # Add src dir
 add_subdirectory(src)
-
+# Add docs dir

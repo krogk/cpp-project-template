@@ -33,3 +33,5 @@
 
 # Build Dir
 build/
+# Doxygen to be updated manually every release
+docs/doxygen/ 

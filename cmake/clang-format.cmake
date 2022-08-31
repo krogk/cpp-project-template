@@ -11,15 +11,14 @@ if(CLANG_FORMAT)
         ${PROJECT_SOURCE_DIR}/src/*.h
         ${PROJECT_SOURCE_DIR}/src/*.hpp
     )
-
     # Add header/source files target and format
     add_custom_target(
         clangformat
         COMMAND clang-format
         -i # In place mode 
-        -style=file # format file
+        -style=file # Use file
         ${ALL_CXX_SOURCE_FILES}
     )
-else()
+else(CLANG_FORMAT)
     message([WARNING] " .clang-format program has not been found, skipping formatting target..." ...)
-endif()
+endif(CLANG_FORMAT)
