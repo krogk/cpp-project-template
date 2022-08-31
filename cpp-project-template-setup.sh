@@ -23,7 +23,11 @@ sudo apt-get install make  -y
 sudo apt-get install cmake -y
 sudo apt-get install ccache -y 
 # LLVM
+sudo apt-get install llvm -y  
 sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+sudo apt-get install clang-format -y 
+# Code coverage
+sudo apt-get install lcov -y  
 # Libs
 sudo apt-get install libboost-all-dev -y
 # Profilers

@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 
-# Set standard 
+# Set standard
 set(CMAKE_CXX_STANDARD 20)
+# Standard is required
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Set Extensions
 set(CMAKE_CXX_EXTENSIONS OFF)
 # Set to Dev mode on i.e enable all analysers
@@ -15,6 +17,8 @@ project(
 	HOMEPAGE_URL "%%myurl%%"
 	LANGUAGES CXX C)
 
+# Add cmake files
+add_subdirectory(cmake)
 # Add src dir
 add_subdirectory(src)
 

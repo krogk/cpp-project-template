@@ -3,6 +3,7 @@
 Light-weight C++ project template based on following technologies:
 * CMake - Build system
 * GTest - Test Framework
+* .clang-format - Google style formatting
 
 
 # Dependencies
