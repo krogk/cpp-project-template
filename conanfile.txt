@@ -1,0 +1,12 @@
+# Docs at https://docs.conan.io/en/latest/reference/conanfile_txt.html
+
+[requires]
+gtest/1.12.1
+spdlog/1.10.0
+boost/1.80.0
+highway/1.0.2
+cli11/2.2.0
+
+[generators]
+# Consider: https://docs.conan.io/en/latest/integrations/build_system/cmake/cmake_find_package_multi_generator.html
+cmake

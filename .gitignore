@@ -35,3 +35,5 @@
 build/
 # Doxygen to be updated manually every release
 docs/doxygen/ 
+# VS Code
+.vscode

@@ -9,6 +9,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Set to Dev mode on i.e enable all analysers
 set(DEV_MODE TRUE CACHE BOOL "Enable Dev mode")
 
+# Compiler choice
+
 # Compile options
 add_compile_options(-g -Wall -Werror)
 
@@ -19,6 +21,10 @@ project(
 	DESCRIPTION "Lightweight C++ Project Template"
 	HOMEPAGE_URL "%%myurl%%"
 	LANGUAGES CXX C)
+
+# Conan
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
 
 # Add cmake files dir
 add_subdirectory(cmake)

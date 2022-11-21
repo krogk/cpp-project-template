@@ -36,6 +36,7 @@ sudo apt install valgrind -y
 sudo apt install doxygen -y 
 sudo apt install graphviz -y
 # Static analysis
+sudo apt install cppcheck -y
 
 # Pcre
 sudo apt install libpcre3-dev -y

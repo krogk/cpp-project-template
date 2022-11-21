@@ -1,12 +1,15 @@
 # C++ Starter Project
 
+[![ci](https://github.com/krogk/cpp-project-template/actions/workflows/ci.yml/badge.svg)](https://github.com/krogk/cpp-project-template/actions/workflows/ci.yml)
+
+## About
 Light-weight C++ project template based on following technologies:
 * CMake - Build system
 * GTest - Test Framework
 * .clang-format - Google style formatting
 
 
-# Dependencies
+## Dependencies
 
 A setup script has been provided for your convenience, it automatically installs all dependencies, clones the project, builds it and runs tests.
 Please read the content of the script before executing it.
