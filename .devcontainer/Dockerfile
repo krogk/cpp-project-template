@@ -1,13 +1,13 @@
 FROM ubuntu:latest
 ARG VARIANT="jammy"
 
+# Get software packages
 RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --no-install-recommends \
         software-properties-common wget apt-utils file zip \
         openssh-client gpg-agent socat rsync \
         make ninja-build git \
         python3 python3-pip
-
 
 # Install conan
 RUN python3 -m pip install --upgrade pip setuptools && \
@@ -50,3 +50,10 @@ RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
 RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --no-install-recommends \
         doxygen graphviz ccache cppcheck
+
+# Cleanup cached apt data
+RUN apt-get autoremove -y && apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Bash prompt
+CMD ["/bin/bash"]

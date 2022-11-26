@@ -3,19 +3,49 @@
 [![ci](https://github.com/krogk/cpp-project-template/actions/workflows/ci.yml/badge.svg)](https://github.com/krogk/cpp-project-template/actions/workflows/ci.yml)
 
 ## About
-Light-weight C++ project template based on following technologies:
-* CMake - Build system
-* GTest - Test Framework
-* .clang-format - Google style formatting
+Light-weight C++ project template utilizing following technologies:
+* [CMake](https://cmake.org/) - Build system
+* [GTest](https://github.com/google/googletest) - Test Framework
+* [.clang-format](https://clang.llvm.org/docs/ClangFormat.html) - Linter
+* [Conan](https://conan.io/) - Package manager
+* [Doxygen](https://www.doxygen.nl/) - Documentation
+* [Docker](https://www.docker.com/) - Ubuntu jammy based container build environment
+* [Github workflows](https://docs.github.com/en/actions/using-workflows/about-workflows) - Continuous Integration
 
 
 ## Dependencies
 
-A setup script has been provided for your convenience, it automatically installs all dependencies, clones the project, builds it and runs tests.
-Please read the content of the script before executing it.
+A dockerfile & build script has been provided for your convenience.
+Please read the content of the /.devcontainer/dockerfile and build.sh first before executing.
 
-To run the setup script use following command:
-(Run in the directory you wish to have starter cloned to)
+### Minimum: 
+* git
+* Cmake
+* Python3
+* Conan
+
+### Recommended:
+Read the packages dev container downloads
+
+1. Install docker & Setup sudo-less docker
+2. Build docker image using container-manager.sh:
 ```
-sudo bash -c "$(wget -O - https://raw.githubusercontent.com/krogk/cpp-project-template/develop/cpp-project-template-setup.sh)"
+./container-manager.sh -b
+```
+3. Run docker image
+```
+./container-manager.sh -r
+```
+
+## Usage
+
+### As a project template
+
+There are several things you would want to change:
+* CMake related: To fit your needs 
+* Readme: Change link for badges
+### Building
+Invoke the build script with -h to determine available build options:
+```
+./build.sh -h
 ```

@@ -12,14 +12,14 @@ set(DEV_MODE TRUE CACHE BOOL "Enable Dev mode")
 # Compiler choice
 
 # Compile options
-add_compile_options(-g -Wall -Werror)
+add_compile_options(-g -Wall -Wextra -Werror -Wshadow -Wpedantic -Wconversion)
 
 # Set project info
 project(
 	cpp-template-project
 	VERSION 0.0.1
 	DESCRIPTION "Lightweight C++ Project Template"
-	HOMEPAGE_URL "%%myurl%%"
+	HOMEPAGE_URL "%%https://github.com/krogk/cpp-project-template%%"
 	LANGUAGES CXX C)
 
 # Conan
