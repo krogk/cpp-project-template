@@ -80,7 +80,7 @@ function InstalCompiler {
 
     # Parse OS
         case $1 in
-        linux)
+        Linux)
             echo "::group::apt install"
             echo "apt install"
             echo apt update
@@ -91,7 +91,7 @@ function InstalCompiler {
             echo "cc=${_CC}${P_VER}" >> $GITHUB_OUTPUT
             echo "cxx=${_CXX}${P_VER}" >> $GITHUB_OUTPUT
         ;;
-        windows)
+        Windows)
             echo "::group::choco install"
             echo "choco install"
             echo choco upgrade $WIN_PKGS -y --no-progress --allow-downgrade
@@ -100,7 +100,7 @@ function InstalCompiler {
             echo "cc=${_CC}" >> $GITHUB_OUTPUT
             echo "cxx=${_CXX}" >> $GITHUB_OUTPUT
         ;;
-        macos)
+        macOS)
             case ${_CC}${P_VER} in
                 gcc-*)
                     echo "::group::Brew install"
