@@ -57,7 +57,7 @@ jobs:
       run: conan profile update settings.compiler.libcxx=libstdc++11 default
       
     - name: Install dependencies
-      run: conan install . -s build_type=${{ matrix.build_type }} --install-folder=${{github.workspace}}/build
+      run: conan install . -s build_type=${{ matrix.build_type }} --install-folder=${{github.workspace}}/build --build missing
 
     - name: Install compiler
       id: install_cc
