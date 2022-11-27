@@ -13,6 +13,16 @@ Light-weight C++ project template utilizing following technologies:
 * [Github workflows](https://docs.github.com/en/actions/using-workflows/about-workflows) - Continuous Integration
 
 
+### Github workflow CI 
+
+The github workflow supports cross-platform build for following operating systems:
+* Ubuntu - latest
+* Macos - latest
+* Windows - latest
+On each platform the following compilers are used:
+* GCC-11
+* LLVM-14
+
 ## Dependencies
 
 A dockerfile & build script has been provided for your convenience.
