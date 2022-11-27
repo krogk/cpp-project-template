@@ -18,7 +18,8 @@ TEST_PARAM=""
 
 HelpPromptPrint () {
 cat << EOF
-Build Script Help Prompt
+----------------------------------------
+####### Build Script Help Prompt #######
 ----------------------------------------
 -h   | --help    : Display this prompt
 ------------BUILD-PARAMETERS------------
@@ -27,6 +28,9 @@ Build Script Help Prompt
 ------------------MISC------------------
 -j # | --jobs #  : Enables parallel build with # jobs
 -v   | --verbose : Enables verbose output
+----------------------------------------
+########################################
+----------------------------------------
 EOF
 }
 
