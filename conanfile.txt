@@ -3,11 +3,11 @@
 [requires]
 # Add new packages from Conan center: https://conan.io/center/ 
 gtest/1.12.1
-spdlog/1.10.0
-nlohmann_json/3.11.2
-boost/1.80.0
-highway/1.0.2
-cli11/2.2.0
+#spdlog/1.10.0
+#nlohmann_json/3.11.2
+#boost/1.80.0
+#highway/1.0.2
+#cli11/2.2.0
 
 [generators]
 cmake
