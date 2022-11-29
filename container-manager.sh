@@ -52,7 +52,6 @@ ContainerExitStatusHandler () {
   # Check if container status is 'exited'
   echo 'exit status container check...'
   if [ $( sudo docker ps -f status=exited -f name=${CONTAINER_NAME} | grep ${CONTAINER_NAME} | wc -l ) -gt 0 ]; then
-  #if [[ -n "$result" ]]; then
     echo 'Removing container...'
     sudo docker rm ${CONTAINER_NAME}
   fi
@@ -105,14 +104,9 @@ while [[ $# -gt 0 ]]; do
       shift # argument
       exit 0
       ;;
-    -*|--*)
+    -*)
       echo "Unknown script argument $1"
       exit 1
-      ;;
-    *)
-      # save positional arg
-      POSITIONAL_ARGS+=("$1") 
-      shift # past argument
       ;;
   esac
 done

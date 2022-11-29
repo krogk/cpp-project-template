@@ -19,7 +19,8 @@ The github workflow supports cross-platform build for following operating system
 * Ubuntu - latest
 * Macos - latest
 * Windows - latest
-On each platform the following compilers are used:
+
+On each platform the following compilers are used for build:
 * GCC-11
 * LLVM-14
 
