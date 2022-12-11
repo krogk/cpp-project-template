@@ -49,6 +49,9 @@ jobs:
       run: pip3 install conan --upgrade
       shell: bash
 
+    - name: Uodate remote conan
+      run: conan remote update conan-center https://center.conan.io
+
     - name: Create default profile
       run: conan profile new default --detect
       
