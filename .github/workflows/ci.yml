@@ -86,8 +86,8 @@ jobs:
 
   coverage: # For now testing on Linux+gcc+gcov TODO: Cross-platform
     runs-on: ubuntu-latest
-      strategy:
-        fail-fast: false
+    strategy:
+      fail-fast: false
 
       steps:
       - uses: actions/checkout@v3
