@@ -21,7 +21,7 @@ The github workflow supports cross-platform build for following operating system
 * Macos - latest
 * Windows - latest
 
-On each platform the following compilers are used for build:
+Scripts to download following compilers across mentioned OS:
 * GCC-11
 * LLVM-14
 
@@ -62,7 +62,7 @@ Invoke build script with -h to determine available build options:
 ./build.sh -h
 ```
 ### Testing
-Invoke test script with -h to determine available build options:
+Invoke test script with -h to determine available test options:
 ```
 ./test.sh -h
 ```
