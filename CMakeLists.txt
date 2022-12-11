@@ -8,8 +8,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 # Set to Dev mode on i.e enable all analysers
 set(DEV_MODE TRUE CACHE BOOL "Enable Dev mode")
+# Code coverage
+option(ENABLE_COVERAGE "Enable coverage reporting for gcc/clang" OFF)
 
-# Compiler choice
+message("[STATUS] Compiler id: ${CMAKE_CXX_COMPILER_ID} ")
+# If compiler is gcc
+if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU") #TODO: Veirfy this works
+	message("[STATUS] Compiler supporting code coverage detected")
+	if(ENABLE_COVERAGE)
+		add_compile_options(--coverage -O0)
+		message("[STATUS] Enabled code coverage")
+	endif()
+endif()
 
 # Compile options
 add_compile_options(-g -Wall -Wextra -Werror -Wshadow -Wpedantic -Wconversion)
@@ -30,4 +40,3 @@ conan_basic_setup()
 add_subdirectory(cmake)
 # Add src dir
 add_subdirectory(src)
-# Add docs dir

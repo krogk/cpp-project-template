@@ -91,3 +91,29 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest -C ${{ matrix.build_type }}
 
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        compiler:
+          - llvm-14
+          - gcc-11
+        build_type:
+          - Debug
+          #- Release
+      if: ${{ always() }}
+    needs: [build]
+    steps:
+
+      - name: Run Test CMake
+        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+
+      - name: Run Test Suite
+        run: |
+          echo Install "${{ inputs.compiler }}" on "${{ runner.os }}"
+          ${{github.workspace}}/test.sh -a

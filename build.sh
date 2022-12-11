@@ -14,6 +14,7 @@ BUILD_TYPE="Debug"
 VERBOSE=""
 JOBS="1"
 TEST_PARAM=""
+COVERAGE="OFF"
 
 HelpPromptPrint () {
 cat << EOF
@@ -57,9 +58,13 @@ while [[ $# -gt 0 ]]; do
     -j|--jobs)
       JOBS="$2"
       shift 2 # past argument & value
+      ;;
+    -c|--coverage)
+      COVERAGE="ON"
+      shift # past argument
       ;;  
     -*)
-      echo "Unknown script argument $1"
+      echo "Unknown script argument $1" 
       exit 1
       ;;
     *)
@@ -87,5 +92,5 @@ conan profile update settings.compiler.libcxx=libstdc++11 default #TODO: automat
 # Install 
 conan install ..
 ### CMake
-cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE}  ..  
-cmake --build . -j ${JOBS} ${VERBOSE}
+cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DENABLE_COVERAGE=${COVERAGE} ..  
+cmake --build . -j ${JOBS} ${VERBOSE} 

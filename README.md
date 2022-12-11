@@ -11,6 +11,7 @@ Light-weight C++ project template utilizing following technologies:
 * [Doxygen](https://www.doxygen.nl/) - Documentation
 * [Docker](https://www.docker.com/) - Ubuntu jammy based container build environment
 * [Github workflows](https://docs.github.com/en/actions/using-workflows/about-workflows) - Continuous Integration
+* [CodeCov](https://about.codecov.io/) - Code Coverage reporting
 
 
 ### Github workflow CI 
@@ -56,7 +57,12 @@ There are several things you would want to change:
 * CMake related: To fit your needs 
 * Readme: Change link for badges
 ### Building
-Invoke the build script with -h to determine available build options:
+Invoke build script with -h to determine available build options:
 ```
 ./build.sh -h
+```
+### Testing
+Invoke test script with -h to determine available build options:
+```
+./test.sh -h
 ```
