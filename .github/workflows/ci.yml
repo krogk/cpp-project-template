@@ -49,9 +49,6 @@ jobs:
       run: pip3 install conan --upgrade
       shell: bash
 
-    - name: Cleanup Conan system packages
-      run: conan remove -f '*/system'
-
     - name: Create default profile
       run: conan profile new default --detect
       
