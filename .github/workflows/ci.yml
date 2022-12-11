@@ -106,7 +106,6 @@ jobs:
         build_type:
           - Debug
           #- Release
-      if: ${{ always() }}
     needs: [build]
     steps:
 
