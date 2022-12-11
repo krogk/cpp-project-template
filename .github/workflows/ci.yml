@@ -84,7 +84,7 @@ jobs:
       # Execute tests defined by the script
       run: .${{github.workspace}}/test.sh -a
 
-   coverage: # For now testing on Linux+gcc+gcov TODO: Cross-platform
+  coverage: # For now testing on Linux+gcc+gcov TODO: Cross-platform
     runs-on: ubuntu-latest
       strategy:
         fail-fast: false
