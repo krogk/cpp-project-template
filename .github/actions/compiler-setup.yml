@@ -1,4 +1,4 @@
-name: Setup C/C++ Compiler
+name: compiler-setup
 description: Install C/C++ compiler
 
 inputs:
