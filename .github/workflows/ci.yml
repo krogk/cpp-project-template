@@ -58,7 +58,7 @@ jobs:
     - name: Install compiler
       run: |
         echo Install "${{ matrix.compiler }}" on "${{ runner.os }}"
-        .${GITHUB_ACTION_PATH}/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
+        .${{github.workspace}}/.github/workflows/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
 
     - name: Check compiler
       shell: bash
@@ -122,7 +122,7 @@ jobs:
     - name: Install compiler
       run: |
         echo Install "${{ matrix.compiler }}" on "${{ runner.os }}"
-        .${GITHUB_ACTION_PATH}/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
+        .${{github.workspace}}/.github/workflows/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
 
     - name: Check compiler
       shell: bash
