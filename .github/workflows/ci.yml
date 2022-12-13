@@ -61,7 +61,7 @@ jobs:
 
     - name: Install compiler
       id: install_cc
-      uses: krogk/cpp-project-template/.github/actions/compiler-setup@develop
+      uses: krogk/cpp-project-template/compiler-setup@develop
       with:
         compiler: ${{ matrix.compiler }}
 
