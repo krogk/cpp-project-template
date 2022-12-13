@@ -120,7 +120,7 @@ jobs:
 
     - name: Install compiler
       id: install_cc
-      uses: krogk/cpp-project-template/.github/actions/compiler-setup/compiler-setup.yml@develop
+      uses: krogk/cpp-project-template/.github/workflows/compiler-setup.yml@develop
       with:
         compiler: ${{ matrix.compiler }}
 
