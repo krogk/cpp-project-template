@@ -8,6 +8,7 @@ set -euo pipefail
 
 # Set script directory
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+BUILD_DIR="${SCRIPT_DIR}/build"
 
 # Defaults Params, as script global variables
 BUILD_TYPE="Debug"
@@ -17,20 +18,24 @@ TEST_PARAM=""
 COVERAGE="OFF"
 CC=""
 CXX=""
-
+COMPILER="gcc"
+COMPILER_VERSION="11"
 
 HelpPromptPrint () {
 cat << EOF
 ----------------------------------------
 ####### Build Script Help Prompt #######
 ----------------------------------------
--h   | --help    : Display this prompt
-------------BUILD-PARAMETERS------------
--d   | --debug   : Build type = debug
--r   | --relase  : Build type = release
+-h   | --help      : Display this prompt
+---------------BUILD-TYPE---------------
+-d   | --debug     : Build type = debug (default)
+-r   | --relase    : Build type = release
+----------------COMPILER----------------
+-compiler compiler-version | --compiler compiler-version : (gcc-11 by default)
 ------------------MISC------------------
--j # | --jobs #  : Enables parallel build with # jobs
--v   | --verbose : Enables verbose output
+-j # | --jobs #    : Enables parallel build with # jobs (1 by default)
+-v   | --verbose   : Enables verbose output (off by default)
+-c   | --coverage  : Enable code coverage
 ----------------------------------------
 ########################################
 ----------------------------------------
@@ -61,6 +66,13 @@ while [[ $# -gt 0 ]]; do
     -j|--jobs)
       JOBS="$2"
       shift 2 # past argument & value
+      ;;
+    -compiler|--compiler)
+      # Remove  - from the command by removing last pattern
+      COMPILER="${$2%%-*}"
+      # Remove compiler name by removing the first pattern
+      COMPILER_VERSION="${$2##*-}"
+      shift 2
       ;;
     -cxx)
       CXX="-DCMAKE_CXX_COMPILER=$2"
@@ -96,12 +108,22 @@ fi
 mkdir build && cd build
 
 ### Conan
+# Create new default profile
+conan profile new default --detect
 # Change the default profile to use libstdc++11
 # https://docs.conan.io/en/latest/howtos/manage_gcc_abi.html#manage-gcc-abi
 # https://stackoverflow.com/questions/61019721/why-cant-i-link-to-spdlog-library-installed-with-conan
-conan profile update settings.compiler.libcxx=libstdc++11 default #TODO: automate for all oses
+#TODO: automate for OS+Compiler combinations
+#conan profile update settings.compiler.libcxx=libstdc++11 default
+#conan profile update settings.compiler.compiler=libstdc++11 default
+#conan profile update settings.compiler.compiler.version=libstdc++11 default
+#conan profile update settings.compiler.compiler.build_type=libstdc++11 default
+
+#Show default conan profile
+conan profile show default
+
 # Install 
-conan install ..
+conan install .. -s build_type=${BUILD_TYPE} --install-folder=${BUILD_DIR} --build missing -s compiler=${COMPILER} -s compiler.version=${COMPILER_VERSION} -s compiler.libcxx=libstdc++11
 ### CMake
 cmake ${CC} ${CXX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DENABLE_COVERAGE=${COVERAGE} ..  
 cmake --build . -j ${JOBS} ${VERBOSE} 
