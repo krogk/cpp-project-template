@@ -57,6 +57,7 @@ jobs:
 
     - name: Install compiler
       id: install_cxx
+      working-directory: ${{github.workspace}}
       shell: bash
       run: bash .github/workflows/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
 
@@ -72,9 +73,9 @@ jobs:
     - name: Build
       working-directory: ${{github.workspace}}
       # Build program with the given configuration
-      run: .${{github.workspace}}/build.sh -d -v
+      run: bash build.sh -d -v
 
     - name: Test
       working-directory: ${{github.workspace}}
       # Execute tests defined by the script
-      run: .${{github.workspace}}/test.sh -a
+      run: bash test.sh -a
