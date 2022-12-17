@@ -68,10 +68,11 @@ while [[ $# -gt 0 ]]; do
       shift 2 # past argument & value
       ;;
     -compiler|--compiler)
+      COMPILER_INPUT=$2
       # Remove  - from the command by removing last pattern
-      COMPILER="${$2%%-*}"
+      COMPILER="${COMPILER_INPUT%%-*}"
       # Remove compiler name by removing the first pattern
-      COMPILER_VERSION="${$2##*-}"
+      COMPILER_VERSION="${COMPILER_INPUT##*-}"
       shift 2
       ;;
     -cxx)
@@ -118,10 +119,8 @@ conan profile new default --detect
 #conan profile update settings.compiler.compiler=libstdc++11 default
 #conan profile update settings.compiler.compiler.version=libstdc++11 default
 #conan profile update settings.compiler.compiler.build_type=libstdc++11 default
-
 #Show default conan profile
 conan profile show default
-
 # Install 
 conan install .. -s build_type=${BUILD_TYPE} --install-folder=${BUILD_DIR} --build missing -s compiler=${COMPILER} -s compiler.version=${COMPILER_VERSION} -s compiler.libcxx=libstdc++11
 ### CMake

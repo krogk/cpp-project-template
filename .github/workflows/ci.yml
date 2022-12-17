@@ -21,7 +21,7 @@ jobs:
           - macos-latest
           - windows-latest
         compiler:
-          - llvm-14
+          - clang++-14
           - gcc-11
         build_type:
           - Debug
@@ -60,9 +60,6 @@ jobs:
       if: ${{ inputs.version == '' }}
       shell: bash
       run: pip3 install conan --upgrade   
-
-    - name: Install dependencies
-      run: conan install . -s build_type=${{ matrix.build_type }} --install-folder=${{github.workspace}}/build --build missing
 
     - name: Build
       working-directory: ${{github.workspace}}
