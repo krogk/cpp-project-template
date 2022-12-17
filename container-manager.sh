@@ -108,5 +108,10 @@ while [[ $# -gt 0 ]]; do
       echo "Unknown script argument $1"
       exit 1
       ;;
+    *)
+    # save positional arg
+    POSITIONAL_ARGS+=("$1") 
+    shift # past argument
+    ;;
   esac
 done
