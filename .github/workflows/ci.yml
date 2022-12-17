@@ -60,7 +60,7 @@ jobs:
       shell: bash
       run: |
         echo Install "${{ matrix.compiler }}" on "${{ runner.os }}"
-        .${{github.workspace}}/.github/workflows/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
+        bash ${{github.workspace}}/.github/workflows/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
 
     - name: Check compiler
       shell: bash
