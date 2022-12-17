@@ -57,9 +57,10 @@ jobs:
 
     - name: Install compiler
       id: install_cxx
-      uses: krogk/cpp-project-template/.github/actions/compiler-setup.yml@develop
-      with:
-        compiler: ${{ matrix.compiler }}
+      run: |
+        echo Install "${{ matrix.compiler }}" on "${{ runner.os }}"
+        .${GITHUB_ACTION_PATH}/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
+        ${{ matrix.compiler }}
 
     - name: Check compiler
       shell: bash
