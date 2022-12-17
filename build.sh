@@ -110,7 +110,7 @@ mkdir build && cd build
 
 ### Conan
 # Create new default profile
-conan profile new default --detect
+#conan profile new default --detect
 # Change the default profile to use libstdc++11
 # https://docs.conan.io/en/latest/howtos/manage_gcc_abi.html#manage-gcc-abi
 # https://stackoverflow.com/questions/61019721/why-cant-i-link-to-spdlog-library-installed-with-conan
@@ -120,7 +120,7 @@ conan profile new default --detect
 #conan profile update settings.compiler.compiler.version=libstdc++11 default
 #conan profile update settings.compiler.compiler.build_type=libstdc++11 default
 #Show default conan profile
-conan profile show default
+#conan profile show default
 # Install 
 conan install .. -s build_type=${BUILD_TYPE} --install-folder=${BUILD_DIR} --build missing -s compiler=${COMPILER} -s compiler.version=${COMPILER_VERSION} -s compiler.libcxx=libstdc++11
 ### CMake
