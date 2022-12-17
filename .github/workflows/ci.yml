@@ -58,9 +58,7 @@ jobs:
     - name: Install compiler
       id: install_cxx
       shell: bash
-      run: |
-        echo Install "${{ matrix.compiler }}" on "${{ runner.os }}"
-        bash .github/workflows/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
+      run: bash .github/workflows/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
 
     - name: Check compiler
       shell: bash
