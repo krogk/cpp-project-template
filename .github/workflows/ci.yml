@@ -64,7 +64,7 @@ jobs:
     - name: Build
       working-directory: ${{github.workspace}}
       # Build program with the given configuration
-      run: bash build.sh -d -v -compiler "${{ matrix.compiler }}" #-cxx ${{ steps.install_cxx.outputs.cxx }} -cc ${{ steps.install_cxx.outputs.cc }}
+      run: bash build.sh -d -v -compiler "${{ matrix.compiler }}" -cxx ${{ steps.install_cxx.outputs.cxx }} -cc ${{ steps.install_cxx.outputs.cc }}
 
     - name: Test
       working-directory: ${{github.workspace}}
