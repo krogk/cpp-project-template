@@ -56,10 +56,10 @@ jobs:
       run: conan install . -s build_type=${{ matrix.build_type }} --install-folder=${{github.workspace}}/build --build missing
 
     - name: Install compiler
-      run: |
-        echo Install "${{ matrix.compiler }}" on "${{ runner.os }}"
-        .${{github.workspace}}/.github/workflows/compiler-setup.sh "${{ runner.os }}" "${{ matrix.compiler }}"
-
+      id: install_cc
+      uses: krogk/cpp-project-template/.github/actions/compiler-setup@develop
+      with:
+        compiler: ${{ matrix.compiler }}
     - name: Check compiler
       shell: bash
       env:

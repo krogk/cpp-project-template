@@ -1,4 +1,4 @@
-name: compiler-setup
+name: Setup C/C++ Compiler
 description: Install C/C++ compiler
 
 inputs:
@@ -24,3 +24,6 @@ runs:
       run: |
         echo Install "${{ inputs.compiler }}" on "${{ runner.os }}"
         ${GITHUB_ACTION_PATH}/compiler-setup.sh "${{ runner.os }}" "${{ inputs.compiler }}"
+branding:
+  color: blue
+  icon: hexagon
