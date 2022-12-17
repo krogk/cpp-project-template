@@ -64,11 +64,11 @@ jobs:
     - name: Check compiler
       shell: bash
       env:
-          CC: ${{ steps.install_cxx.outputs.cc }}
-          CXX: ${{ steps.instalinstall_cxxl_cc.outputs.cxx }}
+        CXX: ${{ steps.install_cxx.outputs.cxx }}
+        CC: ${{ steps.install_cxx.outputs.cc }}
       run: |
-        $CC --version
         $CXX --version
+        $CC --version
 
     - name: Build
       working-directory: ${{github.workspace}}
