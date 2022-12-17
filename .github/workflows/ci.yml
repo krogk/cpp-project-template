@@ -74,8 +74,3 @@ jobs:
       working-directory: ${{github.workspace}}
       # Build program with the given configuration
       run: .${{github.workspace}}/build.sh -d -v
-
-    - name: Test
-      working-directory: ${{github.workspace}}
-      # Execute tests defined by the script
-      run: .${{github.workspace}}/test.sh -a
