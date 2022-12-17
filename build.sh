@@ -15,6 +15,9 @@ VERBOSE=""
 JOBS="1"
 TEST_PARAM=""
 COVERAGE="OFF"
+CC=""
+CXX=""
+
 
 HelpPromptPrint () {
 cat << EOF
@@ -59,6 +62,14 @@ while [[ $# -gt 0 ]]; do
       JOBS="$2"
       shift 2 # past argument & value
       ;;
+    -cxx)
+      CXX="-DCMAKE_CXX_COMPILER=$2"
+      shift 2 # past argument & value
+      ;;
+    -cc)
+      CC="-DCMAKE_C_COMPILER=$2"
+      shift 2 # past argument & value
+      ;;
     -c|--coverage)
       COVERAGE="ON"
       shift # past argument
@@ -92,5 +103,5 @@ conan profile update settings.compiler.libcxx=libstdc++11 default #TODO: automat
 # Install 
 conan install ..
 ### CMake
-cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DENABLE_COVERAGE=${COVERAGE} ..  
+cmake ${CC} ${CXX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DENABLE_COVERAGE=${COVERAGE} ..  
 cmake --build . -j ${JOBS} ${VERBOSE} 

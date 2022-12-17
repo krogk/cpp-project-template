@@ -83,10 +83,10 @@ function InstalCompiler {
         Linux)
             echo "::group::apt install"
             echo "apt install"
-            echo apt update
-            $ECHO apt update
-            echo apt install ${PKGS} -y
-            $ECHO apt install ${PKGS} -y
+            echo sudo apt-get update
+            $ECHO sudo apt-get update
+            echo apt-get install ${PKGS} -y
+            $ECHO sudo apt-get install ${PKGS} -y
             echo "::endgroup::"
             echo "cc=${_CC}${P_VER}" >> ${GITHUB_OUTPUT}
             echo "cxx=${_CXX}${P_VER}" >> ${GITHUB_OUTPUT}
